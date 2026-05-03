@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aashpura Mobile Shop</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#0d6efd,#00c6ff);
+}
+
+header {
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+nav {
+  background:white;
+  text-align:center;
+  padding:10px;
+}
+nav a {
+  margin:10px;
+  text-decoration:none;
+  color:#0d6efd;
+  font-weight:bold;
+}
+
+section {
+  background:rgba(255,255,255,0.95);
+  margin:15px;
+  padding:20px;
+  border-radius:12px;
+}
+
+.container {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.card {
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+input, select {
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+.btn {
+  background:#0d6efd;
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:green;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Aashpura Mobile Shop & Repairing Center</h1>
+<p>🔥 Trusted Mobile Shop Naini | 10+ Years Experience</p>
+</header>
+
+<nav>
+<a href="#products">Products</a>
+<a href="#exchange">Exchange</a>
+<a href="#register">Register</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section>
+<h2 style="text-align:center;color:#0d6efd;">🔥 Best Mobile Deals in Naini 🔥</h2>
+</section>
+
+<section id="products">
+<h2>📱 Available Phones</h2>
+
+<div class="container">
+
+<div class="card">
+<h3>iPhone 11 (128GB)</h3>
+<p>₹22,000 | Good Condition</p>
+<p>🔋 100% Battery</p>
+<button class="btn" onclick="buy('iPhone 11 128GB')">Buy</button>
+</div>
+
+<div class="card">
+<h3>iPhone XR</h3>
+<p>Available</p>
+<button class="btn" onclick="buy('iPhone XR')">Buy</button>
+</div>
+
+<div class="card">
+<h3>iPhone XS</h3>
+<p>Premium Model</p>
+<button class="btn" onclick="buy('iPhone XS')">Buy</button>
+</div>
+
+<div class="card">
+<h3>iPhone 15 (512GB)</h3>
+<p>Latest Model</p>
+<button class="btn" onclick="buy('iPhone 15 512GB')">Buy</button>
+</div>
+
+</div>
+
+<p>📦 Samsung | Vivo | Oppo | Motorola - All Models Available on Demand</p>
+
+</section>
+
+<section id="exchange">
+<h2>🔁 Sell / Exchange Your Phone</h2>
+
+<div class="card">
+<form onsubmit="exchange(); return false;">
+<input type="text" id="ename" placeholder="Your Name" required>
+<input type="text" id="ephone" placeholder="Phone Number" required>
+<input type="text" id="emodel" placeholder="Phone Model" required>
+
+<select id="econdition">
+<option>Good</option>
+<option>Average</option>
+<option>Bad</option>
+</select>
+
+<select id="ebill">
+<option>Bill/Box Available</option>
+<option>No Bill/Box</option>
+</select>
+
+<button class="btn">Submit</button>
+</form>
+</div>
+
+<p>⚠️ Bill/Box hone par better price milega</p>
+
+</section>
+
+<section id="register">
+<h2>📝 Free Customer Registration</h2>
+
+<div class="card">
+<form onsubmit="register(); return false;">
+<input type="text" id="rname" placeholder="Your Name" required>
+<input type="text" id="rphone" placeholder="Mobile Number" required>
+
+<select id="interest">
+<option>Buy Phone</option>
+<option>Sell Phone</option>
+<option>Repair Service</option>
+</select>
+
+<button class="btn">Register Free</button>
+</form>
+</div>
+
+</section>
+
+<section id="contact">
+<h2>📍 Contact</h2>
+
+<div class="card">
+📞 9598919992<br>
+📍 Naini, ADA Gangapuram, Kishori Lal PG College ke samne, Prayagraj<br><br>
+
+<a class="btn" href="https://wa.me/919598919992">WhatsApp</a><br><br>
+
+<a class="btn" href="https://instagram.com">Instagram</a>
+
+</div>
+
+</section>
+
+<a class="whatsapp" href="https://wa.me/919598919992">💬</a>
+
+<script>
+function buy(model){
+  window.open("https://wa.me/919598919992?text=I want "+model);
+}
+
+function exchange(){
+  var name=document.getElementById("ename").value;
+  var phone=document.getElementById("ephone").value;
+  var model=document.getElementById("emodel").value;
+
+  var msg="Exchange Request:%0AName:"+name+
+          "%0APhone:"+phone+
+          "%0AModel:"+model;
+
+  window.open("https://wa.me/919598919992?text="+msg);
+}
+
+function register(){
+  var name=document.getElementById("rname").value;
+  var phone=document.getElementById("rphone").value;
+  var interest=document.getElementById("interest").value;
+
+  var msg="New Registration:%0AName:"+name+
+          "%0APhone:"+phone+
+          "%0AInterest:"+interest;
+
+  window.open("https://wa.me/919598919992?text="+msg);
+}
+</script>
+
+</body>
+</html>
