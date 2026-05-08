@@ -1,16 +1,64 @@
-document.getElementById("form").addEventListener("submit", function(e){
+window.onload=function(){
+  alert("🔥 Welcome to Aashpura Mobile Shop 🔥");
+}
 
-    e.preventDefault();
+function buy(model){
+  window.open("https://wa.me/919598919992?text=I want "+model);
+}
 
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
+setInterval(function(){
+  const now=new Date();
 
-    let message =
-    `Hello, my name is ${name}. My number is ${phone}. I want a website demo.`;
+  if(document.getElementById("clock")){
+    document.getElementById("clock").innerHTML=
+    "🕒 Time: "+now.toLocaleTimeString();
+  }
 
-    let url =
-    `https://wa.me/919598919992?text=${encodeURIComponent(message)}`;
+},1000);
 
-    window.open(url, "_blank");
+const offers=[
+"🔥 Exchange Offer Available",
+"⚡ Fast Repair Service",
+"🎁 Free Phone Checkup",
+"📱 Best Mobile Deals"
+];
 
-});
+let i=0;
+
+setInterval(function(){
+
+  if(document.getElementById("offerText")){
+    document.getElementById("offerText").innerHTML=offers[i];
+  }
+
+  i++;
+
+  if(i>=offers.length){
+    i=0;
+  }
+
+},2000);
+
+window.onscroll=function(){
+
+  if(document.body.scrollTop>200 ||
+     document.documentElement.scrollTop>200){
+
+      document.getElementById("topBtn").style.display="block";
+
+  }else{
+
+      document.getElementById("topBtn").style.display="none";
+  }
+}
+
+function topFunction(){
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function darkMode(){
+  document.body.classList.toggle("dark");
+}
