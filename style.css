@@ -1,39 +1,164 @@
-body{
+*{
   margin:0;
+  padding:0;
+  box-sizing:border-box;
   font-family:Arial;
-  background:linear-gradient(135deg,#0d6efd,#00c6ff);
 }
 
-header{
-  text-align:center;
+body{
   color:white;
-  padding:20px;
+  overflow-x:hidden;
+  background:#0f0f0f;
 }
 
+/* Animated Background */
+.background{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:linear-gradient(-45deg,#ff416c,#ff4b2b,#6a11cb,#2575fc);
+  background-size:400% 400%;
+  animation:bg 10s ease infinite;
+  z-index:-1;
+}
+
+@keyframes bg{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Navbar */
 nav{
-  background:white;
-  text-align:center;
-  padding:10px;
-}
-nav a{
-  margin:10px;
-  text-decoration:none;
-  color:#0d6efd;
-  font-weight:bold;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 10%;
 }
 
-section{
+.logo{
+  font-size:28px;
+}
+
+.nav-btn{
+  text-decoration:none;
   background:white;
-  margin:15px;
-  padding:20px;
-  border-radius:10px;
+  color:black;
+  padding:10px 20px;
+  border-radius:30px;
+}
+
+/* Hero */
+.hero{
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:20px;
+  margin-bottom:30px;
 }
 
 .btn{
-  background:#0d6efd;
-  color:white;
-  padding:10px;
+  background:white;
+  color:black;
+  padding:15px 30px;
+  text-decoration:none;
+  border-radius:30px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+}
+
+/* Services */
+.services{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:50px 20px;
+}
+
+.card{
+  width:300px;
+  margin:20px;
+  padding:30px;
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* About */
+.about{
+  text-align:center;
+  padding:50px 20px;
+}
+
+/* Contact */
+.contact{
+  text-align:center;
+  padding:50px 20px;
+}
+
+input{
+  width:300px;
+  padding:15px;
+  margin:10px;
   border:none;
-  border-radius:5px;
+  border-radius:10px;
+}
+
+button{
+  padding:15px 30px;
+  border:none;
+  border-radius:30px;
+  background:#ff4b2b;
+  color:white;
   cursor:pointer;
+}
+
+/* WhatsApp */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  width:60px;
+  height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:28px;
+  color:white;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.hero h1{
+  font-size:35px;
+}
+
+.services{
+  flex-direction:column;
+  align-items:center;
+}
+
+input{
+  width:90%;
+}
+
 }
