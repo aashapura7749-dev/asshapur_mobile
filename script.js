@@ -1,64 +1,35 @@
-window.onload=function(){
-  alert("🔥 Welcome to Aashpura Mobile Shop 🔥");
+// 1. Phone BUY karne ke liye function (WhatsApp par redirect karega)
+function buy(productName) {
+    const phoneNumber = "919598919992"; // Aapka WhatsApp Number
+    const message = `Hi Aashpura Mobile, I am interested in buying: ${productName}. Is it available?`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 }
 
-function buy(model){
-  window.open("https://wa.me/919598919992?text=I want "+model);
-}
+// 2. Phone SELL karne ke liye function (Bill & Box Security Check ke saath)
+function submitSellForm(event) {
+    event.preventDefault(); // Page ko reload hone se rokne ke liye
+    
+    const model = document.getElementById("phoneModel").value;
+    const condition = document.getElementById("phoneCondition").value;
+    const hasBill = document.getElementById("hasBill").value;
+    const hasBox = document.getElementById("hasBox").value;
+    const price = document.getElementById("expectedPrice").value;
 
-setInterval(function(){
-  const now=new Date();
+    // Strict Rule: Agar Bill ya Box dono mein se ek bhi 'No' hai toh alert dikhayega
+    if (hasBill === "No" || hasBox === "No") {
+        alert("⚠️ Security Alert: Aashpura Mobile Shop par phone bechne ke liye Original BILL aur BOX dono hona mandatory (zaroori) hai!");
+        return; // Code aage nahi badhega, form submit nahi hoga
+    }
 
-  if(document.getElementById("clock")){
-    document.getElementById("clock").innerHTML=
-    "🕒 Time: "+now.toLocaleTimeString();
-  }
+    // Agar Bill aur Box dono 'Yes' hain, toh WhatsApp par detail chali jayegi
+    const phoneNumber = "919598919992";
+    const message = `Hi Aashpura Mobile, I want to SELL my phone:\n\n` +
+                    `- Model: ${model}\n` +
+                    `- Condition: ${condition}\n` +
+                    `- Bill & Box: Available ✅\n` +
+                    `- My Expected Price: ₹${price}`;
 
-},1000);
-
-const offers=[
-"🔥 Exchange Offer Available",
-"⚡ Fast Repair Service",
-"🎁 Free Phone Checkup",
-"📱 Best Mobile Deals"
-];
-
-let i=0;
-
-setInterval(function(){
-
-  if(document.getElementById("offerText")){
-    document.getElementById("offerText").innerHTML=offers[i];
-  }
-
-  i++;
-
-  if(i>=offers.length){
-    i=0;
-  }
-
-},2000);
-
-window.onscroll=function(){
-
-  if(document.body.scrollTop>200 ||
-     document.documentElement.scrollTop>200){
-
-      document.getElementById("topBtn").style.display="block";
-
-  }else{
-
-      document.getElementById("topBtn").style.display="none";
-  }
-}
-
-function topFunction(){
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-}
-
-function darkMode(){
-  document.body.classList.toggle("dark");
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
 }
