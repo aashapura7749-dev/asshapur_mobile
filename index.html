@@ -18,3 +18,34 @@
         </div>
     </div>
 </section>
+<section id="sell-form-section">
+    <h2>💰 Sell Your Old Phone to Us</h2>
+    <form id="sellPhoneForm" onsubmit="submitSellForm(event)">
+        <label>Phone Model Name:</label>
+        <input type="text" id="phoneModel" placeholder="e.g., iPhone 12 Pro" required>
+
+        <label>Phone Condition:</label>
+        <select id="phoneCondition">
+            <option value="Excellent">Like New / No Scratches</option>
+            <option value="Good">Good / Minor Scratches</option>
+            <option value="Fair">Fair / Screen Changed</option>
+        </select>
+
+        <label>Do you have the Original Bill?</label>
+        <select id="hasBill" required>
+            <option value="Yes">Yes, I have the Bill</option>
+            <option value="No">No Bill</option>
+        </select>
+
+        <label>Do you have the Original Box?</label>
+        <select id="hasBox" required>
+            <option value="Yes">Yes, I have the Box</option>
+            <option value="No">No Box</option>
+        </select>
+
+        <label>Your Expected Price (₹):</label>
+        <input type="number" id="expectedPrice" placeholder="e.g., 20000" required>
+
+        <button type="submit">Submit Details to Shop</button>
+    </form>
+</section>
